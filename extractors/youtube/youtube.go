@@ -128,7 +128,9 @@ func extractVideoURLS(data youtubeData, referer string) (map[string]downloader.S
 		itag := stream.Get("itag")
 		streamType := stream.Get("type")
 		isAudio := strings.HasPrefix(streamType, "audio/mp4")
-
+		if config.Audio && !isAudio {
+			continue
+		}
 		quality := stream.Get("quality_label")
 		if quality == "" {
 			quality = stream.Get("quality") // for url_encoded_fmt_stream_map

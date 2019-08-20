@@ -1,6 +1,8 @@
 package config
 
 var (
+	// Audio only
+	Audio bool
 	// Debug debug mode
 	Debug bool
 	// Version show version
